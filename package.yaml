@@ -1,0 +1,66 @@
+name:                langs
+version:             0.1.0.0
+github:              "diasbruno/langs"
+license:             BSD3
+author:              "Bruno Dias"
+maintainer:          "dias.h.bruno@gmail.com"
+copyright:           "2019 Bruno Dias"
+
+extra-source-files:
+- readme.md
+- changelog.md
+- makefile
+- license.md
+
+synopsis:            Collection of parsers for many languages.
+category:            Language
+
+description:         Collection of parsers for many languages.
+
+dependencies:
+- base >= 4.7 && < 5
+- array
+- parsec
+- ansi-terminal
+- directory
+- filepath
+- haskeline
+- parsec
+- process
+- terminfo
+
+library:
+  source-dirs: src
+  dependencies:
+  - array
+
+executables:
+  ce:
+    main:
+      Main.hs
+    source-dirs:
+      ce
+    dependencies:
+    - array
+    - langs
+    - ansi-terminal
+    - directory
+    - filepath
+    - haskeline
+    - process
+    - terminfo
+
+tests:
+  jsparser:
+    main:
+      Main.hs
+    source-dirs:
+      test
+    ghc-options:
+    - -threaded
+    - -rtsopts
+    - -with-rtsopts=-N
+    dependencies:
+    - langs
+    - tasty
+    - tasty-hunit

@@ -1,0 +1,94 @@
+cabal-version: 1.12
+
+-- This file has been generated from package.yaml by hpack version 0.31.2.
+--
+-- see: https://github.com/sol/hpack
+--
+-- hash: 92a199cb9f4f1a0cd60e695eb47dcbda68bb49e934404b427ce9c1a52fd5028a
+
+name:           langs
+version:        0.1.0.0
+synopsis:       Collection of parsers for many languages.
+description:    Collection of parsers for many languages.
+category:       Language
+homepage:       https://github.com/diasbruno/langs#readme
+bug-reports:    https://github.com/diasbruno/langs/issues
+author:         Bruno Dias
+maintainer:     dias.h.bruno@gmail.com
+copyright:      2019 Bruno Dias
+license:        BSD3
+build-type:     Simple
+extra-source-files:
+    readme.md
+    changelog.md
+    makefile
+    license.md
+
+source-repository head
+  type: git
+  location: https://github.com/diasbruno/langs
+
+library
+  exposed-modules:
+      Language.Javascript.ES1.Lexer
+      Language.Javascript.ES1.Parser
+      Language.Javascript.Types
+  other-modules:
+      Paths_langs
+  hs-source-dirs:
+      src
+  build-depends:
+      ansi-terminal
+    , array
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , haskeline
+    , parsec
+    , process
+    , terminfo
+  default-language: Haskell2010
+
+executable ce
+  main-is: Main.hs
+  other-modules:
+      Paths_langs
+  hs-source-dirs:
+      ce
+  build-depends:
+      ansi-terminal
+    , array
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , haskeline
+    , langs
+    , parsec
+    , process
+    , terminfo
+  default-language: Haskell2010
+
+test-suite jsparser
+  type: exitcode-stdio-1.0
+  main-is: Main.hs
+  other-modules:
+      JavascriptLexer
+      JavascriptParser
+      Paths_langs
+  hs-source-dirs:
+      test
+  ghc-options: -threaded -rtsopts -with-rtsopts=-N
+  build-depends:
+      ansi-terminal
+    , array
+    , base >=4.7 && <5
+    , directory
+    , filepath
+    , haskeline
+    , langs
+    , parsec
+    , process
+    , tasty
+    , tasty-hunit
+    , terminfo
+  default-language: Haskell2010
